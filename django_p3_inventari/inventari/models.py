@@ -14,13 +14,13 @@ class Producte (models.Model):
     def __str__(self):
         return f'{self.nom} - {self.categoria.nom}'
 
-class Ubicacions(models.Model):
+class Ubicacio(models.Model):
     nom = models.CharField(max_length=100)
     descripcio= models.CharField(max_length=200)
     def __str__(self):
         return f'{self.nom}'
     
-class Exemplars (models.Model):
+class Exemplar (models.Model):
     ESTAT_PRODUCTE = (
         ('be', 'BÉ'),
         ('regular', 'REGULAR'),
