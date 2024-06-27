@@ -26,7 +26,7 @@ class Exemplar (models.Model):
         ('regular', 'REGULAR'),
         ('dolent', 'DOLENT'),
     )
-    producte = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    producte = models.ForeignKey(Producte, on_delete=models.CASCADE)
     estat = models.CharField(max_length=10, choices=ESTAT_PRODUCTE)
     num_serie = models.CharField(max_length=30)
     def __str__(self):
