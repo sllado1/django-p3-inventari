@@ -29,6 +29,8 @@ class Exemplar (models.Model):
     producte = models.ForeignKey(Producte, on_delete=models.CASCADE)
     estat = models.CharField(max_length=10, choices=ESTAT_PRODUCTE)
     num_serie = models.CharField(max_length=30)
+    ubicacio = models.ForeignKey(Ubicacio,on_delete=models.SET_NULL, null=True)
+
     def __str__(self):
         return f'{self.producte.nom} - {self.num_serie} - {self.estat}'
 

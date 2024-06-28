@@ -16,9 +16,21 @@ class PartitAdmin(admin.ModelAdmin):
     search_fields = ["categoria__nom"]
     # el camp personalitzat ("resultats" o recompte de gols)
     # el mostrem com a "readonly_field"
+
+class ExemplarAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ("Nom", {"fields": ["producte"]}),
+        ("Estat", {"fields": ["estat"]}),
+        ("Num sèrie", {"fields": ["num_serie"]}),
+        ("Ubicacio", {"fields": ["ubicacio"]}),
+    ]
+    list_display = ["producte","estat","num_serie","ubicacio"]
+    readonly = ["ubicacio__nom"]
+    # el camp personalitzat ("resultats" o recompte de gols)
+    # el mostrem com a "readonly_field"
     
 admin.site.register(Categoria)
 admin.site.register(Producte,PartitAdmin)
-admin.site.register(Exemplar)
+admin.site.register(Exemplar,ExemplarAdmin)
 admin.site.register(Ubicacio)
 
