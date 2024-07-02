@@ -27,4 +27,4 @@ jobs:
         pip install -r ./django_p3_inventari/requirements.txt
     - name: Run Tests
       run: |
-        cd django_p3_inventari; python ./manage.py test
+        cd django_p3_inventari; MOZ_HEADLESS=1 python ./manage.py test
