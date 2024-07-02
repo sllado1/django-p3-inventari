@@ -1,0 +1,30 @@
+{% extends "inventari/base.html" %}
+{% block content %}
+<ul>
+    <h1>Llista de Productes</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if exemplars %}
+        <h2>Exemplars</h2>
+        <table>
+            <tr>
+                <th>Núm sèrie</th>
+                <th>Estat</th>
+                <th>Ubicació</th>
+            </tr>
+            {% for exemplar in exemplars %}
+                <tr>
+                <td>{{ exemplar.num_serie }} </td>
+                <td>{{ exemplar.estat }} </td>
+                <td>{{ exemplar.ubicacio.nom }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %} 
+        No hi ha exemplars d'aquest producte
+    {% endif %}
+{% endblock %}
